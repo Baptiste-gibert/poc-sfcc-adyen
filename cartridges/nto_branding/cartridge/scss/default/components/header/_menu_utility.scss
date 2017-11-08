@@ -1,0 +1,82 @@
+.user-info {
+    @media #{$desktop} {
+        .utility-link span {
+            display: none;
+        }
+        position: relative;
+        transition: color .5s ease;
+        &.active {
+            .user-login {
+                color: $blue1;
+            }
+            .user-panel {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    @media #{$mobile} {
+        .utility-link {
+            color: $grey1dark;
+            .fa {
+                width: 18px;
+            }
+        }
+    }
+    .user-panel {
+        display: none;
+        box-sizing: content-box; //See https://code.google.com/p/chromium/issues/detail?can=2&q=max-content&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified&id=522191&thanks=522191&ts=1439925077
+        margin-top: .5rem;
+        text-align: left;
+        transition: all .3s ease;
+        width: 10rem; //For IE
+        width: max-content;
+        h3 {
+            display: none;
+            margin: 0;
+            padding-bottom: .7em;
+            text-transform: uppercase;
+            @media #{$desktop} {
+                display: block;
+            }
+        }
+        @media #{$desktop} {
+            background-color: $white;
+            border: 1px solid $gainsboro;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px 0 $very-light-gray;
+            margin-top: 0;
+            opacity: 0;
+            padding: 1em;
+            position: absolute;
+            right: -1.5rem;
+            visibility: hidden;
+            z-index: 20;
+        }
+        .user-links {
+            padding-left: 1.5rem;
+            text-align: center;
+            @media #{$desktop} {
+                padding-left: 0;
+            }
+        }
+        a {
+            display: block;
+            padding: .5rem 0;
+            @media #{$desktop} {
+                padding: 0;
+                margin-bottom: .5rem;
+            }
+        }
+        .user-logout {
+            color: $white;
+            margin-top: .5rem;
+            padding: 0.5em 2em;
+            text-transform: uppercase;
+            &:hover {
+                color: $blue1;
+            }
+        }
+    }
+}
+

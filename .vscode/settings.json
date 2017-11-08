@@ -1,0 +1,4 @@
+{
+    "extension.prophet.upload.enabled" : true,
+    "http.proxyStrictSSL": false
+}

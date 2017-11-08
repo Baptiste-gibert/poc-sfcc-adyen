@@ -1,0 +1,27 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<isdecorate template="account/orderhistory/pt_orderhistory">
+    <isinclude template="util/modules"/>
+    <div class="myaccount-orderhistory">
+        <div class="myaccount-order-header">
+            <iscontentasset aid="myaccount-order-header"/>
+        </div>
+        <div id="tabs-onlineorders-tab">
+            <isif condition="${empty(pdict.orders) || !pdict.orders.success || empty(pdict.orders.data) || pdict.orders.data.length == 0}">
+                <div class="no-orders">
+                    <iscontentasset aid="myaccount-order-norecords"/>
+                </div>
+            <iselse/>
+                <isif condition="${pdict.orders.success == true}">
+                    <ul class="search-result-items">
+                        <isloop items="${pdict.orders.data}" var="order" status="orderloopstate">
+                            <isinclude template="account/orderhistory/orderitem"/>
+                        </isloop>
+                    </ul>
+                </isif>
+            </isif>
+        </div>
+    </div>
+    <div class="myaccount-orderhistory-slots">
+        <isslot id="myaccount-orderhistory-1" description="Content slot in my account order history" context="global" /> 
+    </div>
+</isdecorate>

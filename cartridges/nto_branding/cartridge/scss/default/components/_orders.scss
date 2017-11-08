@@ -1,0 +1,293 @@
+// Order History - Order Details Styling
+
+.order-history-header {
+    background: $grey7;
+    overflow: hidden;
+    padding: 10px;
+    .label {
+        font-weight: 700;
+    }
+    button {
+        float: right;
+    }
+    .order-date,
+    .order-status,
+    .order-number {
+        float: left;
+        margin: 2px 0;
+        width: 51%;
+    }
+    @media #{$mobile} {
+        .button-order-details {
+            display: none;
+        }
+    }
+}
+.order-history-items {
+    margin: 0 0 30px;
+    .order-history-table {
+        th, td {
+            padding: 5px 10px;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style-position: inside;
+            list-style-type: square;
+        }
+        .order-shipped-to,
+        .order-items,
+        .order-total-price {
+            width: 33%;
+        }
+        .toggle {
+            cursor: pointer;
+            display: block;
+        }
+    }
+    @media #{$mobile} {
+        .order-history-table {
+            margin-bottom: 10px;
+        }
+        .button-order-details {
+            display: block; // fullwidth
+        }
+    }
+    @media #{$desktop} {
+        .button-order-details {
+            display: none;
+        }
+    }
+}
+.js .order-history-table .hidden {
+    display: none;
+}
+
+// Details Styling
+
+.orderdetails {
+    h2 {
+        clear: both;
+    }
+    .label {
+        font-weight: bold;
+        margin-bottom: .3rem;
+        margin-top: .3rem;
+        text-transform: uppercase;
+    }
+    .order-shipment-table {
+        background-color: $grey7;
+        padding: 1em;
+    }
+
+    @media #{$desktop}{
+        // align with PAYMENT TOTAL above
+        .order-shipment-details {
+            .order-shipment-address {
+                float: right;
+                width: 300px;
+                margin-right: -1rem;
+                padding: 0 0.3rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .line-items {
+        padding-top: 1rem;
+        clear: both;
+    }
+
+    .order-information {
+        padding-bottom: .5em;
+        padding-top: .5em;
+        .label {
+            font-weight: 300;
+            text-transform: none;
+        }
+        .value {
+            font-weight: 700;
+        }
+
+    }
+    .payment-amount {
+        .label {
+            font-weight: normal;
+            text-transform: none;
+        }
+    }
+    .order-totals-table td {
+        padding: 0;
+        &:first-child {
+            padding-right: 3rem;
+            text-align: left;
+        }
+    }
+}
+.pt_order,
+.confirmation {
+    .actions {
+        clear: both;
+        padding: 20px 0;
+        a {
+            margin-right: 2rem;
+        }
+    }
+}
+.confirmation-message {
+    padding: 20px 30px;
+}
+.confirmation {
+
+    .login-create-account,
+    .order-confirmation-details {
+        padding: 0 30px;
+    }
+    .actions {
+        padding: 20px 30px;
+    }
+    &.create-account {
+        .login-box-content {
+            background-color: $grey7;
+            padding: 15px;
+            p {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+            .form-row {
+                margin: 0;
+            }
+        }
+        @media #{$desktop} {
+            overflow: hidden;
+            .login-create-account,
+            .order-confirmation-details {
+                float: left;
+                box-sizing: border-box;
+            }
+            .login-create-account {
+                width: 25%;
+                padding: 0 20px 0 0;
+            }
+            .order-confirmation-details {
+                width: 75%;
+                padding: 0 30px;
+            }
+        }
+    }
+}
+
+// styling update for new template
+.confirmation {
+    .order-number {
+        margin: 0;
+    }
+    .order-shipments h2 {
+        margin: 0;
+        font-weight: normal;
+    }
+}
+.orderdetails {
+    .title {
+        font-size: 18px;
+    }
+    .order-payment-summary,
+    .order-payment-instruments,
+    .order-billing,
+    .returndetails {
+        margin-bottom: 30px;
+        div.label {
+            font-size: 18px;
+            font-weight: normal;
+        }
+    }
+    .return-order-actions form {
+        display: inline-block;
+    }
+}
+@media #{$mobile} {
+    .order-shipment-table {
+        .line-item-head {
+            display: none;
+        }
+    }
+}
+@media screen and (min-width: 480px) {
+    .confirmation {
+        .orderdetails {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .order-shipments {
+            width: 100%;
+            order: 1;
+        }
+    }
+    .orderdetails {
+        .order-info-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .order-information,
+        .returndetails {
+            width: 100%;
+        }
+        .order-payment-summary {
+            order: 1;
+            width: 300px;
+            word-wrap: break-word;
+            td:first-child {
+                max-width: 200px;
+            }
+        }
+        .order-payment-instruments,
+        .order-billing {
+            flex: 1;
+            padding-right: 30px;
+        }
+        .order-payment-instruments {
+            padding-left: 30px;
+        }
+        .return-order-button-container,
+        .returndetails {
+            order: 2;
+            padding: 25px 30px;
+
+            @media #{$tablet} {
+                padding: 0;
+            }
+
+            @media #{$mobile} {
+                padding: 0;
+            }
+        }
+    }
+
+    .order-shipment-table {
+        .visible-mobile {
+            display: none;
+        }
+        .line-item-head {
+            font-weight: bold;
+        }
+        .line-item-head,
+        .line-item {
+            display: flex;
+            margin: 0 -5px;
+            > div {
+                flex:1;
+                padding: 0 5px;
+            }
+        }
+        .line-item-head .line-item-head-details,
+        .line-item .line-item-details {
+            flex: 3;
+        }
+        .line-item-price,
+        .line-item-head-price {
+            text-align: right;
+        }
+    }
+}
+

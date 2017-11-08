@@ -1,0 +1,111 @@
+footer {
+    clear: both;
+    padding: 15px 20px 25px;
+    background-color: $grey1;
+    color: $white;
+    h3 {
+        font-family: inherit;
+        font-weight: normal;
+        margin: 0;
+        line-height: inherit;
+    }
+}
+
+.footer-container {
+    h3, .title {
+        display: inline-block;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+    ul {
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+        }
+    }
+    a {
+        color: $white;
+        &:hover {
+            color: $grey6;
+            text-decoration: none;
+        }
+    }
+}
+
+.footer-nav {
+    @media screen and (min-width: 480px) {
+        display: flex;
+    }
+    .footer-item {
+        padding: 10px 0;
+        @media screen and (min-width: 480px) {
+            width: 25%;
+            padding: 0 15px;
+        }
+    }
+    .content {
+        display: block;
+    }
+    .store .content {
+        padding: 10px 0;
+    }
+}
+.menu-footer {
+    float: none;
+    li {
+        float: none;
+    }
+    a {
+        padding: 10px 0;
+        display: inline-block;
+    }
+}
+
+.footer-bottom {
+    padding-top: 30px;
+    border-top: 1px solid $grey5;
+    margin-top: 20px;
+}
+.footer-social {
+    max-width: 300px;
+    @media screen and (min-width: 480px) {
+        float: right;
+    }
+    .social-links {
+        padding-left: 0;
+    }
+    li {
+        display: inline;
+        float: none;
+        padding-right: 0.5em;
+    }
+}
+.copyright-notice {
+    font-size: 11px;
+    @media screen and (min-width: 480px) {
+        padding-right: 200px;
+    }
+    .copyright {
+        margin: 0 0 10px;
+    }
+}
+
+
+#email-alert-signup {
+    white-space: nowrap;
+    input[type="text"] {
+        border: none;
+        margin-left: 0;
+        width: 15em;
+    }
+    button {
+        background-color: $dark-gray;
+        border: none;
+        color: $white;
+        height: 31px;
+        padding: 0;
+        width: 31px;
+    }
+}

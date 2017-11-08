@@ -1,0 +1,17 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "type": "prophet",
+            "request": "launch",
+            "name": "Attach to Sandbox",
+            "hostname": "dev06.store.napali.demandware.net",
+            "username": "admin",
+            "password": "Quiksilver2018!",
+            "code-version": "POC",
+            "cartridgeroot": "auto",
+            "workspaceroot": "${workspaceRoot}",
+            "trace": true
+        }
+    ]
+}

@@ -1,0 +1,223 @@
+
+
+.navigation {
+    color: $white;
+    padding: 0 $container-padding;
+    @media #{$mobile} {
+        position: absolute;
+        left: 100%;
+        top: 0;
+        z-index: 999;
+        width: 0;
+        min-height: 100vh;
+        padding: 0;
+        overflow: hidden;
+        background: $white;
+        .menu-active & {
+            width: 100%;
+            left: 0;
+            transition: left 0.2s ease-in;
+        }
+    }
+
+    .close-button {
+        padding: 18px;
+        background-color: $grey1dark;
+        border-bottom: 1px solid $grey5;
+        a {
+            float: right;
+            color: $grey7;
+        }
+    }
+    .utility-item {
+        border-bottom: 1px solid $grey7;
+        color: $grey1dark;
+        background: $grey8;
+    }
+    .utility-link,
+    .current-country {
+        display: block;
+        padding: 15px;
+        line-height: 20px;
+    }
+}
+.header-top .menu-toggle {
+    background-color: transparent;
+    border: none;
+    display: block;
+    float: left;
+    padding: 10px;
+    line-height: 40px;
+    color: $white;
+    @media #{$desktop} {
+        display: none;
+    }
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background-color: transparent;
+    }
+    .menu-icon {
+        font-size: 16px;
+    }
+}
+
+.menu-category {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+        list-style: none;
+        @media #{$desktop} {
+            float: left;
+        }
+    }
+    a {
+        color: $grey1dark;
+        display: block;
+        padding: 10px 15px;
+    }
+    @media #{$desktop} {
+        margin: 0  -10px;
+    }
+}
+
+.level-1 > li {
+    @extend .clearfix;
+    @media #{$mobile} {
+        border-bottom: 1px solid $grey7;
+    }
+    .menu-item-toggle {
+        color: $grey1dark;
+        cursor: pointer;
+        float: left;
+        padding: 15px 0;
+        width: 35px;
+        line-height: 20px;
+        text-align: center;
+        transition: background-color 0.3s;
+        @media #{$desktop} {
+            display: none;
+        }
+    }
+
+    > a {
+        float: left;
+        padding: 15px;
+        line-height: 20px;
+        @media #{$mobile} {
+            &.has-sub-menu {
+                width: calc(100% - 35px);
+                padding-left: 0;
+            }
+        }
+        @media #{$desktop} {
+            float: none;
+            width: 100%;
+            padding: 15px 10px;
+            font-size: 18px;
+            color: $white;
+        }
+    }
+    @media #{$desktop} {
+        &:hover > a{
+            color: $grey1dark;
+            background-color: $white;
+        }
+    }
+}
+
+.level-2 {
+    clear: left;
+    display: none;
+    > ul {
+        @extend .clearfix;
+        padding-bottom: .5em;
+        padding-left: 2.1rem;
+    }
+    .level-1 > .active & {
+        display: block;
+    }
+    @media #{$desktop} {
+        background-color: $white;
+        color: $night-rider;
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+        .level-1 li:hover & {
+            display: block;
+        }
+        a {
+            color: inherit;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        > ul {
+            float: left;
+            padding: 0.5em 0;
+            > li {
+                float: none;
+                min-width: 12em;
+                > a {
+                    padding: 0.5em 1rem;
+                    text-transform: none;
+                }
+            }
+        }
+        .menu-vertical {
+            >li+li {
+                border-top: 1px solid $grey1dark;
+            }
+            >li:hover {
+                background-color: $grey8;
+            }
+        }
+        .menu-horizontal {
+            float: none;
+            > li {
+                border-right: 1px solid $gainsboro;
+                float: left;
+                padding-right: 2rem;
+                &:last-child {
+                    border-right: none;
+                }
+            }
+
+        }
+        .banner {
+            float: left;
+        }
+    }
+    .banner {
+        display: none;
+        @media #{$desktop} {
+            display: block;
+        }
+        img {
+            vertical-align: top;
+        }
+    }
+}
+
+.level-3 {
+    display: none;
+    padding-left: 2em;
+    .level-2 .active & {
+        display: block;
+    }
+    @media #{$desktop} {
+        display: block;
+        a {
+            color: darken($blue1, 20%);
+            font-weight: normal;
+            padding: 0;
+        }
+        li {
+            float: none;
+            padding: 0.4em;
+        }
+    }
+}

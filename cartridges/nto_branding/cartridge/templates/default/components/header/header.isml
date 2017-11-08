@@ -1,0 +1,81 @@
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+<script>
+	document.getElementsByTagName("html")[0].className += " js ";
+</script>
+
+
+<div class="top-banner" role="banner" id="navigation">
+    <div class="fixed-header js-fixed-header clearfix">
+        <div class="header-top">
+            <h1 class="primary-logo">
+                <a href="${URLUtils.url('Home-Show')}" title="${Resource.msgf('global.homepage.tooltip', 'locale', null, Resource.msg('global.storename', 'locale', null), Resource.msg('global.home', 'locale', null) )}">
+                    <img src="${URLUtils.staticURL('/images/logo.png')}" class="logo-full" alt="${Resource.msg('global.storename', 'locale', null)}">
+                    <img src="${URLUtils.staticURL('/images/logo-md.svg')}" class="logo-md" alt="${Resource.msg('global.storename', 'locale', null)}">
+                    <span class="visually-hidden">${Resource.msg('global.storename','locale', null)}</span>
+                </a>
+            </h1>
+
+
+            <div class="menu-utilities">
+                <iscomment> site search </iscomment>
+                <div class="utility-item header-search">
+                    <isinclude template="search/simplesearch" />
+                </div>
+
+                <iscomment> utility user menu </iscomment>
+                <div class="utility-item  menu-utility-user">
+                    <iscomment>INCLUDE: Customer login information, login, etc. (contains personal information, do not cache)</iscomment>
+                    <isinclude url="${URLUtils.url('Home-IncludeHeaderCustomerInfo')}" />
+                </div>
+
+                <iscomment>Country Selector</iscomment>
+                <div class="utility-item">
+                    <isinclude template="components/header/countryselector" />
+                </div>
+
+                <iscomment>INCLUDE: Mini-cart, do not cache</iscomment>
+                <div id="mini-cart" class="utility-item">
+                    <isinclude url="${URLUtils.url('Cart-MiniCart')}" />
+                </div>
+
+                <button class="menu-toggle">
+                    <i class="menu-icon fa fa-bars"></i>
+                    <span class="visually-hidden">Menu</span>
+                </button>
+            </div>
+        </div>
+
+        <nav class="navigation" role="navigation">
+            <div class="close-menu clearfix">
+                <div class="close-button menu-toggle clearfix">
+                    <a href="#" role="button">
+                        Close
+                        <span aria-hidden="true">×</span>
+                    </a>
+                </div>
+            </div>
+            <iscomment>INCLUDE: category menu</iscomment>
+            <div class="clearfix">
+                <isinclude url="${URLUtils.url('Home-IncludeHeaderMenu')}" />
+            </div>
+
+            <iscomment> utility user menu </iscomment>
+            <div class="utility-item  menu-utility-user">
+                <iscomment>INCLUDE: Customer login information, login, etc. (contains personal information, do not cache)</iscomment>
+                <isinclude url="${URLUtils.url('Home-IncludeHeaderCustomerInfo')}" />
+            </div>
+
+            <iscomment>Country Selector</iscomment>
+            <div class="utility-item">
+                <isinclude template="components/header/countryselector" />
+            </div>
+        </nav>
+
+    </div>
+</div>
+<!-- /header -->
+
+<iscomment>SLOT CONFIGURATION: SLOT/ID: header-banner</iscomment>
+<div class="header-banner">
+    <isslot id="header-banner" description="Slot above the site header" context="global" />
+</div>

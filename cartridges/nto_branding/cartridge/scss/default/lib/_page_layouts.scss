@@ -1,0 +1,83 @@
+#wrapper {
+    position: relative;
+    margin: 0 auto;
+    &.pt_order-confirmation {
+        background: $white;
+    }
+}
+
+.primary-content {
+    box-sizing: border-box;
+    padding: $container-padding;
+    @media #{$desktop} {
+        position: relative;
+        width: 75%;
+        float: right;
+        .primary-focus & {
+            float: left;
+        }
+        .full-width & {
+            width: 100%;
+        }
+    }
+    .pt_checkout &,
+    .pt_account &,
+    .pt_order &,
+    .pt_wish-list &,
+    .pt_gift-registry & {
+        background: $white;
+    }
+    .pt_account &,
+    .pt_order &,
+    .pt_wish-list &,
+    .pt_gift-registry & {
+        @media #{$desktop} {
+            min-height: 700px;
+            padding: 35px $container-padding;
+        }
+    }
+    .pt_categorylanding & {
+        padding-bottom: 0;
+        @media #{$desktop} {
+            width: 80%;
+        }
+    }
+    .pt_product-search-result & {
+        padding: 0 $container-padding;
+    }
+}
+
+#secondary {
+    box-sizing: border-box;
+    padding: 35px $container-padding;
+
+    @media #{$desktop} {
+        position: relative;
+        float: left;
+        width: 25%;
+        nav {
+            padding-left: 10px;
+            padding-right: 10px;
+            a {
+                display: block;
+            }
+        }
+        .primary-focus & {
+            padding: 35px $container-padding;
+        }
+    }
+    // Remove Refinements for responsive design
+    .pt_content-search-result &,
+    .pt_order & {
+        display: none;
+        @media #{$desktop} {
+            display: block;
+        }
+    }
+    .pt_product-search-result & {
+        padding: 0 $container-padding;
+    }
+}
+.secondary-content {
+    clear: both;
+}

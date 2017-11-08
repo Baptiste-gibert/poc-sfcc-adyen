@@ -1,0 +1,212 @@
+
+
+.top-banner {
+    position: relative;
+    z-index: 3;
+    * {
+        box-sizing: border-box;
+    }
+}
+.fixed-header {
+    background-color: $grey1;
+}
+.header-top {
+    padding: 0 $container-padding;
+    @media #{$mobile} {
+        .country-selector {
+            display: none;
+        }
+    }
+}
+.navigation {
+    clear: both;
+    background: $grey1dark;
+    @media #{$desktop} {
+        .utility-item,
+        .close-menu {
+            display: none;
+        }
+    }
+}
+.primary-logo {
+    float: left;
+    margin: 5px 15px 0 0;
+
+    .logo-full {
+        display: none;
+    }
+    .logo-md {
+        height: 50px;
+        width: 100px;
+        vertical-align: bottom;
+    }
+    @media #{$desktop} {
+        margin-top: 15px;
+        margin-bottom: 10px;
+        a {
+            display: block;
+            height: 45px;
+            width: 165px;
+            padding: 5px 0;
+            text-align: center;
+        }
+        .logo-md   { display: none; }
+        .logo-full {
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+}
+
+.header-banner {
+    display:block;
+    .header-promotion {
+        padding: 5px 0;
+        background-color: $blue1;
+        color: $white;
+        text-align: center;
+    }
+}
+
+$header-icon-size: 50px;
+.menu-utilities {
+    float: right;
+
+    .utility-item {
+        float: left;
+    }
+    .utility-link,
+    .mini-cart-link {
+        display: block;
+        padding: 10px;
+        color: $grey6;
+        transition: background-color .5s ease;
+
+        .fa {
+            display: block;
+            font-size: 19px;
+            line-height: 40px;
+        }
+    }
+    .menu-utility-user {
+        display: none;
+    }
+    .fa-shopping-cart {
+        @extend .fa-shopping-bag;
+    }
+    @media #{$desktop} {
+        .menu-utility-user {
+            display: block;
+        }
+        .utility-link,
+        .mini-cart-link {
+            padding: 15px 10px;
+        }
+    }
+}
+
+.header-search {
+    $search-width: 250px;
+    $search-mini-width: 39px;
+    $search-padding: 15px;
+
+    width: $search-width;
+    border-radius: 5px;
+    background-color: $white;
+    color: $grey3;
+    white-space: nowrap;
+    margin: 10px 5px;
+    @media #{$desktop} {
+        position: relative;
+        z-index: 1;
+    }
+    form {
+        margin: 0;
+    }
+    input[type="text"] {
+        background-color: transparent;
+        border: none;
+        float: left;
+        height: 40px;
+        padding: 0 0 0 $search-padding;
+        margin: 0;
+
+        width: 85%; // default for older browser
+        width: calc(100% - 40px);
+
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        color: inherit;
+        padding: 10px 13px;
+        i {
+            font-size: 14px;
+        }
+    }
+
+    @media #{$desktop} {
+        display: block;
+        margin: 15px 10px 0 -150px;
+    }
+    @media #{$device} {
+        width: $search-mini-width;
+        border-radius: 20px;
+        margin-left: 0;
+        input[type="text"] {
+            max-width: 0;
+            padding: 0;
+        }
+        &.active {
+            width: $search-width;
+            border-radius: 5px;
+            transition: all 0.3s linear;
+            input[type="text"] {
+                max-width: none;
+                padding: 0 0 0 $search-padding;
+                transition: padding 0.3s linear;
+            }
+        }
+    }
+    @media #{$mobile} {
+        &.active {
+            width: 135px;
+            margin-left: -50px;
+        }
+    }
+}
+
+.stores {
+    span {
+        display: none;
+    }
+}
+
+// sticky header functionality styling
+@media #{$desktop} {
+    $normal-header-height: 120px;
+    $sticky-header-height: 70px;
+    .fixed-header {
+        top: -$sticky-header-height;
+        transition: top 0.3s linear;
+    }
+    .sticky-header {
+        padding-top: $normal-header-height;
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            height: $sticky-header-height;
+        }
+        .navigation {
+            clear: none;
+            background: transparent;
+        }
+        .menu-category {
+            padding: 10px 0 0;
+        }
+    }
+}

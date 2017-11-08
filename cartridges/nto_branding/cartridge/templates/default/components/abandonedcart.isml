@@ -1,0 +1,18 @@
+<iscontent type="text/html" charset="UTF-8" compact="true"/>
+<style>
+    .abandoned-cart-container {
+        z-index: 2;
+        padding: 0;
+        width: 0;
+    }
+    .abandoned-cart-cta {
+        cursor: pointer;
+    }
+    .abandoned-cart-cta:hover {
+        background: #d4d4d4;
+    }
+</style>
+
+<div class="abandoned-cart-cta visually-hidden js-abandoned-cart-cta" data-orig-text="Abandoned Cart Trigger" data-in-progress-text="Abandoned Cart Trigger (In Progress)">
+    Abandoned Cart Trigger
+</div>
