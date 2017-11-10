@@ -1,0 +1,106 @@
+var ServiceRegistry = require('dw/svc').ServiceRegistry;
+var AdyenHelper = require("int_adyen/cartridge/scripts/libs/libAdyen.ds");
+
+ServiceRegistry.configure('adyen.form.setup', {
+    
+    /**
+     *    Create the service
+     *
+     *   @returns Configured ServiceClient
+     *
+     */
+    initServiceClient: function() {
+        this.serviceClient = new dw.net.HTTPClient();
+        return this.serviceClient;        
+    },
+    
+    /**
+     *    Create the request
+     *
+     *   @param {dw.svc.HTTPService} svc  
+     *	 @param args
+     *   @returns RequestObject
+     *
+     */
+    createRequest: function (svc, args) {
+        var requestURL = svc.URL + (svc.URL[svc.URL.length -1] === '/' ? '' : '/') + 'setup';
+        svc.setRequestMethod('POST');
+        svc.setURL(requestURL);
+        svc.addHeader("Content-Type", "application/json");
+        svc.addHeader("X-API-Key", "AQEnhmfuXNWTK0Qc+iSTmmE7rOuOXK9IAJxa9dMWTYTacBXxBOiT0j0SEMFdWw2+5HzctViMSCJMYAc=-mh/Em7fNnQFzPz8vq9BG/JKMl7+OSvefQP4luCMGd+Y=-E43uVSqN6F73kVQ8");
+     
+        /*var requestObj = {
+        	'reference' => args.reference,
+        	'amount': {
+        		'value': args.amount.value,
+        		'currency': args.amount.currency
+        	},
+        	'shopperReference': args.email, // 
+		    'shopperLocale': args.locale, // 'nl_NL',
+		    'countryCode': args.countryCode, // 'NL',
+		    'channel': 'web',
+		    'html': true,
+		    'origin': 'http://www.dev.quiksilver.fr',
+			'shopperIP': args.shopperIP, // args.order.remoteHost,
+			'returnUrl': 'http://www.dev03.quiksilver.fr/verify',
+			'merchantAccount': AdyenHelper.getMerchantAccount(order.currencyCode),
+        }*/
+        
+        var requestObj = {
+        	'reference': 'DEV03-89283928877',
+        	'amount': {
+        		'value': '100',
+        		'currency': 'EUR'
+        	},
+        	'shopperReference': 'benjamin.delichere@boardriders.com',
+		    'shopperLocale': 'nl_NL',
+		    'countryCode': 'NL',
+		    'channel': 'Web',
+		    'html': true,
+		    'origin': 'https://dev06-store-napali.demandware.net',
+			'shopperIP': '8.8.8.8',
+			'returnUrl': 'https://dev06-store-napali.demandware.net/verify',
+			'merchantAccount': 'Checkout1',
+        };
+  //      return requestObj;
+        return JSON.stringify(requestObj);
+    },
+    
+    /**
+     *   Parses Response
+     *
+     *   @param svc {dw.svc.HTTPService} 
+     *   @param client {dw.net.HTTPClient}
+     *   @returns Response Object
+     *
+     */       
+    parseResponse: function (svc, client) {
+        return client.text;
+        return JSON.parse(client.text);         
+    },
+    
+    /**
+     *   Mocks the service call
+     *
+     *   @param svc {dw.svc.HTTPService} 
+     *   @param client {dw.net.HTTPClient}
+     *   @returns Mocked Response Object
+     *
+     */    
+    mockCall: function(svc, client){
+        return {
+        	pspReference: '108-mock-reference-108', 
+        	response: '[capture-received]'
+        }  
+    },
+    
+    /**
+     * Required for proper logging, can be used to filter out privacy related information
+     *
+     * @param {String} msg
+     * @returns {String}
+     */
+    filterLogMessage : function(msg) {
+		return msg;
+	}
+});

@@ -24,6 +24,17 @@
 <script type="text/javascript"><isinclude template="resources/appresources"/></script>
 <script type="text/javascript"><isinclude url="${URLUtils.url('Resources-LoadTransient')}"/></script>
 <script src="${URLUtils.staticURL('/js/app.js')}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+// Create a config object for SDK.
+  var sdkConfigObj = {
+    context : 'test' // change it to `live` when going live.
+  };
+
+  var checkout = chckt.checkout(<isprint value="${pdict.PayLoad}" encoding="off"/>, '.adyen-checkout-wrapper', sdkConfigObj);
+})
+
+</script>
 <isif condition="${!('pageContext' in this) || empty(pageContext)}">
 	<isscript>pageContext = new Object();</isscript>
 </isif>

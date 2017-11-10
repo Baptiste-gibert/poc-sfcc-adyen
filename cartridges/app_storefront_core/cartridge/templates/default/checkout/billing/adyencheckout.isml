@@ -1,0 +1,4 @@
+<div>
+    <legend>Adyen Checkout</legend>
+    <div class="adyen-checkout-wrapper">...</div>
+</div>

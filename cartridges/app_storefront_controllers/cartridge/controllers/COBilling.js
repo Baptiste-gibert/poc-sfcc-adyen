@@ -78,6 +78,7 @@ function initEmailAddress(cart) {
  */
 function returnToForm(cart, params) {
     var pageMeta = require('~/cartridge/scripts/meta');
+    var adyenCheckout = require('~/cartridge/scripts/adyenCheckout');
 
     // if the payment method is set to gift certificate get the gift certificate code from the form
     if (!empty(cart.getPaymentInstrument()) && cart.getPaymentInstrument().getPaymentMethod() === PaymentInstrument.METHOD_GIFT_CERTIFICATE) {
@@ -93,7 +94,8 @@ function returnToForm(cart, params) {
     if (params) {
         app.getView(require('~/cartridge/scripts/object').extend(params, {
             Basket: cart.object,
-            ContinueURL: URLUtils.https('COBilling-Billing')
+            ContinueURL: URLUtils.https('COBilling-Billing'),
+            PayLoad : adyenCheckout.getPayLoad()
         })).render('checkout/billing/billing');
     } else {
         app.getView({

@@ -201,8 +201,12 @@
      ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++</iscomment>
 
 
-    <iscomment>payment method area</iscomment>
-    <isinclude template="checkout/billing/paymentmethods"/>
+    <iscomment>payment method area
+        <isinclude template="checkout/billing/paymentmethods"/>
+    </iscomment>
+
+    <isinclude template="checkout/billing/adyencheckout"/>
+
     <isbonusdiscountlineitem p_alert_text="${Resource.msg('billing.bonusproductalert','checkout',null)}" p_discount_line_item="${pdict.BonusDiscountLineItem}"/>
 
 
